@@ -1,6 +1,8 @@
 # Testcloud::Billing::Ruby
 
-TODO: Write a gem description
+[![Gem Version](https://badge.fury.io/rb/testcloud-billing-ruby.svg)](http://badge.fury.io/rb/testcloud-billing-ruby)
+
+Connecting to the testCloud Billing API (currently only used internally).
 
 ## Installation
 
@@ -47,10 +49,9 @@ Create a Customer (in this case with SEPA direct debit payment):
 For credit card customers use this:
 
     ...
-    timezone: "Berlin",
     payment_method: "credit_card",
-    credit_card_data_attributes: {
-      stripe_token: "THESTRIPETOKEN", # from Stripe.js
+    credit_card_data_attributes: { # from Stripe.js
+      stripe_token: "THESTRIPETOKEN",
       last4: "4242",
       brand: "visa",
       exp_month: "05",
@@ -60,7 +61,7 @@ For credit card customers use this:
     }
 
 
-To bill a customer:
+Billing a customer:
 
     bill = Testcloud::Billing::Bill.create(
       customer_id: customer.id,
@@ -80,7 +81,7 @@ To bill a customer:
 
 ## Contributing
 
-1. Fork it ( https://github.com/[my-github-username]/testcloud-billing-ruby/fork )
+1. Fork it ( https://github.com/testCloud/testcloud-billing-ruby/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)

@@ -10,7 +10,7 @@ module Testcloud
       options[:url] ||= DEFAULT_URL
       HER.setup url: options[:url] do |c|
         # Authentication
-        c.use Testcloud::Billing::Authentication, api_key: options[:api_key]
+        c.use Testcloud::Billing::Authentication, api_key: options[:api_key]    if options[:api_key].present?
         # Request
         c.use Faraday::Request::UrlEncoded
         # Response
